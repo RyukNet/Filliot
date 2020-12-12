@@ -2,7 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QFileSystemModel>
+#include <QDir>
+#include <QFileIconProvider>
+#include <QTreeWidgetItem>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,6 +20,14 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    QFileSystemModel fileSystem;
+    QDir* dir;
+    QFileIconProvider *fileIconProvider;
+
+    void addTreeItem(const QFileInfo fileInfo);
+
+private slots:
+    void aboutDoubleClick(QTreeWidgetItem *item);
+    void updateTreeWidget();
+
 };
 #endif // MAINWINDOW_H
