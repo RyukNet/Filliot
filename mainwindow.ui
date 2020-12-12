@@ -37,51 +37,18 @@
       </property>
       <widget class="QTreeView" name="treeView"/>
       <widget class="QTabWidget" name="tabWidget">
-       <property name="tabShape">
-        <enum>QTabWidget::Rounded</enum>
+       <property name="documentMode">
+        <bool>true</bool>
        </property>
-       <property name="currentIndex">
-        <number>0</number>
+       <property name="tabsClosable">
+        <bool>true</bool>
+       </property>
+       <property name="movable">
+        <bool>true</bool>
        </property>
        <property name="tabBarAutoHide">
         <bool>true</bool>
        </property>
-       <widget class="QWidget" name="tab_3">
-        <attribute name="title">
-         <string>Tab 1</string>
-        </attribute>
-        <layout class="QGridLayout" name="gridLayout_3">
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-         <item row="0" column="0">
-          <widget class="QTreeWidget" name="treeWidget">
-           <property name="frameShape">
-            <enum>QFrame::NoFrame</enum>
-           </property>
-           <column>
-            <property name="text">
-             <string notr="true">1</string>
-            </property>
-           </column>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="tab_4">
-        <attribute name="title">
-         <string>Page</string>
-        </attribute>
-       </widget>
       </widget>
      </widget>
     </item>
