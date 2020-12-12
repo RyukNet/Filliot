@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    fileSystem.setRootPath(QDir::currentPath());
+    ui->treeWidget->QTreeView::setModel(&fileSystem);
 }
 
 MainWindow::~MainWindow()
