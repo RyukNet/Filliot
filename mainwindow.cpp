@@ -14,19 +14,12 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    /***
+     * TO ADD: Set the app start-up time according to settings data
+     *
+    ***/
     ui->setupUi(this);
-
-    /*dir = new QDir("D:/");
-    fileIconProvider = new QFileIconProvider();
-
-    //ui->treeWidget->QTreeView::setDropIndicatorShown(false);
-    ui->treeWidget->setColumnCount(2);
-
-    for(auto entryInfo : dir->entryInfoList()){
-        addTreeItem(entryInfo);
-    }
-    updateTreeWidget();
-    connect(ui->treeWidget, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this, SLOT(aboutDoubleClick(QTreeWidgetItem*)));*/
+    ui->splitter->setSizes(QList<int>{300,1000});
 
     ExplorerWidget *expWidget = new ExplorerWidget();
 
@@ -36,24 +29,4 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::addTreeItem(const QFileInfo fileInfo){
-    /*QTreeWidgetItem *item = new QTreeWidgetItem(ui->treeWidget);
-    item->setIcon(0,fileIconProvider->icon(fileInfo));
-    item->setText(0, fileInfo.fileName());
-    item->setText(1, fileInfo.birthTime().toString());*/
-}
-
-void MainWindow::aboutDoubleClick(QTreeWidgetItem *item){
-    /*qDebug() << item->text(0);
-    if(dir->cd(item->text(0)))
-        updateTreeWidget();*/
-}
-
-void MainWindow::updateTreeWidget(){
-    /*ui->treeWidget->clear();
-    for(auto entryInfo : dir->entryInfoList()){
-        addTreeItem(entryInfo);
-    }*/
 }

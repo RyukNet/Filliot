@@ -20,14 +20,5 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    QDir* dir;
-    QFileIconProvider *fileIconProvider;
-
-    void addTreeItem(const QFileInfo fileInfo);
-
-private slots:
-    void aboutDoubleClick(QTreeWidgetItem *item);
-    void updateTreeWidget();
-
 };
 #endif // MAINWINDOW_H

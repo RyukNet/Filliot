@@ -7,6 +7,7 @@
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 #include <QVBoxLayout>
+#include <QMenu>
 
 class ExplorerWidget : public QWidget
 {
@@ -19,12 +20,14 @@ private:
 
     QVBoxLayout *vBoxLayout;
     QTreeWidget *treeWidget;
+    QMenu *menu;
 
     void addTreeItem(const QFileInfo fileInfo);
 
 private slots:
     void cdInDirItem(QTreeWidgetItem *item);
     void updateTreeWidget();
+    void showMenu(const QPoint &pos);
 signals:
 
 };
