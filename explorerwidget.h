@@ -7,7 +7,8 @@
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 #include <QVBoxLayout>
-#include <QMenu>
+#include "menu.h"
+
 
 class ExplorerWidget : public QWidget
 {
@@ -20,7 +21,7 @@ private:
 
     QVBoxLayout *vBoxLayout;
     QTreeWidget *treeWidget;
-    QMenu *menu;
+    Menu *menu;
 
     void addTreeItem(const QFileInfo fileInfo);
 
@@ -28,8 +29,12 @@ private slots:
     void cdInDirItem(QTreeWidgetItem *item);
     void updateTreeWidget();
     void showMenu(const QPoint &pos);
-signals:
 
+    //slots going to mainwindow
+    void openInNewTab();
+
+signals:
+    void openInNewTabSignal(QString);
 };
 
 #endif // EXPLORERWIDGET_H

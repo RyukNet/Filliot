@@ -11,11 +11,13 @@ CONFIG += c++11
 SOURCES += \
     explorerwidget.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    menu.cpp
 
 HEADERS += \
     explorerwidget.h \
-    mainwindow.h
+    mainwindow.h \
+    menu.h
 
 FORMS += \
     mainwindow.ui
