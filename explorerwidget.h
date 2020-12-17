@@ -14,7 +14,8 @@ class ExplorerWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ExplorerWidget(QWidget *parent = nullptr);
+    explicit ExplorerWidget(QWidget *parent = nullptr, QString path = "/");
+    //ExplorerWidget(QWidget *parent = nullptr,const QString path = "/");
 private:
     QDir* dir;
     QFileIconProvider *fileIconProvider;
@@ -31,7 +32,7 @@ private slots:
     void showMenu(const QPoint &pos);
 
     //slots going to mainwindow
-    void openInNewTab();
+    void openInNewTab(QString);
 
 signals:
     void openInNewTabSignal(QString);

@@ -11,11 +11,18 @@ public:
     explicit Menu(QWidget* parent = nullptr);
     void setFileOptions();
     void setDirOptions();
+
+    void setAbsPath(const QString path);
+    QString absPath();
+
+private :
+    QString AbsPath;
 private slots:
+
     void openInNewTab();
 
 signals:
-    void openNewTabSignal();
+    void openNewTabSignal(QString path);
 
 };
 

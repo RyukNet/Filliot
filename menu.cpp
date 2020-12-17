@@ -4,6 +4,7 @@
 
 Menu::Menu(QWidget* parent): QMenu(parent)
 {
+    AbsPath = "";
     this->addAction("Open");
     this->addAction("Open in new window"); //Directory related
     this->addAction("Open in tab"); //Directory related
@@ -34,5 +35,14 @@ void Menu::setDirOptions(){
 
 void Menu::openInNewTab(){
     qDebug() << "Opened !";
-    emit openNewTabSignal();
+    emit openNewTabSignal(AbsPath);
+}
+
+
+void Menu::setAbsPath(const QString path){
+    AbsPath = path;
+}
+
+QString Menu::absPath(){
+    return  AbsPath;
 }

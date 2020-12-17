@@ -21,12 +21,22 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->splitter->setSizes(QList<int>{300,1000});
 
-    ExplorerWidget *expWidget = new ExplorerWidget();
+    ExplorerWidget *expWidget = new ExplorerWidget(nullptr,"D:/");
 
-    ui->tabWidget->addTab(expWidget,"Herro");
+    ui->tabWidget->addTab(expWidget,"D:/");
+
+    connect(expWidget,SIGNAL(openInNewTabSignal(QString)),this,SLOT(openFolderInNewTab(QString)));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+
+void MainWindow::openFolderInNewTab(QString path){
+    qDebug() << path;
+    ExplorerWidget *expWidget_buff = new ExplorerWidget(this,path);
+    ui->tabWidget->addTab(expWidget_buff,path);
+    connect(expWidget_buff,SIGNAL(openInNewTabSignal(QString)),this,SLOT(openFolderInNewTab(QString)));
 }

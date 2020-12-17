@@ -20,5 +20,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+private slots:
+    void openFolderInNewTab(QString);
 };
 #endif // MAINWINDOW_H
