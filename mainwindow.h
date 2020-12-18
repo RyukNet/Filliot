@@ -22,5 +22,6 @@ private:
     Ui::MainWindow *ui;
 private slots:
     void openFolderInNewTab(QString);
+    void changeTabName(QString);
 };
 #endif // MAINWINDOW_H

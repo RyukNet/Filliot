@@ -59,6 +59,7 @@ void ExplorerWidget::addTreeItem(const QFileInfo fileInfo){
 void ExplorerWidget::cdInDirItem(QTreeWidgetItem *item){
     if(dir->cd(item->text(0)))
         updateTreeWidget();
+    emit titleChanged(dir->dirName());
 }
 
 void ExplorerWidget::updateTreeWidget(){

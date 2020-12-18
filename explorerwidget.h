@@ -36,6 +36,7 @@ private slots:
 
 signals:
     void openInNewTabSignal(QString);
+    void titleChanged(QString);
 };
 
 #endif // EXPLORERWIDGET_H
