@@ -29,5 +29,6 @@ private slots:
     void changeTabName(QString);
 
     void changeCurrentTabPath(QModelIndex index);
+    void closeTab(int);
 };
 #endif // MAINWINDOW_H
