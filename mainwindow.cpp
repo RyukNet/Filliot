@@ -28,6 +28,15 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(expWidget, SIGNAL(openInNewTabSignal(QString)), this, SLOT(openFolderInNewTab(QString)));
     connect(expWidget, SIGNAL(titleChanged(QString)), this, SLOT(changeTabName(QString)));
+
+    fileSysModel = new QFileSystemModel(this);
+    fileSysModel->setRootPath("/");
+    fileSysModel->setFilter(QDir::AllDirs | QDir::NoDotAndDotDot);
+    ui->treeView->setModel(fileSysModel);
+    ui->treeView->setExpandsOnDoubleClick(false);
+    for (int i = 1; i < fileSysModel->columnCount(); ++i)
+        ui->treeView->hideColumn(i);
+    connect(ui->treeView,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(changeCurrentTabPath(QModelIndex)));
 }
 
 MainWindow::~MainWindow()
@@ -46,4 +55,10 @@ void MainWindow::openFolderInNewTab(QString path){
 
 void MainWindow::changeTabName(QString name){
     ui->tabWidget->setTabText(ui->tabWidget->currentIndex(),name);
+}
+
+void MainWindow::changeCurrentTabPath(QModelIndex index){
+    //qDebug() << index.data(Qt::UserRole+1).toString(); //QFileSystemModel by default give to (Qt::UserRole+1) the file path
+    ((ExplorerWidget*)ui->tabWidget->currentWidget())->cd(index.data(Qt::UserRole+1).toString());
+
 }

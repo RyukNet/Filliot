@@ -39,6 +39,16 @@ ExplorerWidget::ExplorerWidget(QWidget *parent, QString path) : QWidget(parent)
 
 }
 
+bool ExplorerWidget::cd(const QString path){
+    bool res = dir->cd(path);
+    if(res){
+        updateTreeWidget();
+        emit pathChanged();
+        emit titleChanged(dir->dirName());
+    }
+    return res;
+}
+
 void ExplorerWidget::addTreeItem(const QFileInfo fileInfo){
     QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
     //item->QWidget::contextMenuEvent();

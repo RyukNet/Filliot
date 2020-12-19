@@ -6,6 +6,8 @@
 #include <QFileIconProvider>
 #include <QTreeWidgetItem>
 
+#include <QFileSystemModel>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -20,8 +22,12 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+    QFileSystemModel *fileSysModel;
 private slots:
     void openFolderInNewTab(QString);
     void changeTabName(QString);
+
+    void changeCurrentTabPath(QModelIndex index);
 };
 #endif // MAINWINDOW_H

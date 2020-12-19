@@ -16,6 +16,8 @@ class ExplorerWidget : public QWidget
 public:
     explicit ExplorerWidget(QWidget *parent = nullptr, QString path = "/");
     //ExplorerWidget(QWidget *parent = nullptr,const QString path = "/");
+
+    bool cd(const QString path);
 private:
     QDir* dir;
     QFileIconProvider *fileIconProvider;
@@ -37,6 +39,8 @@ private slots:
 signals:
     void openInNewTabSignal(QString);
     void titleChanged(QString);
+
+    void pathChanged();
 };
 
 #endif // EXPLORERWIDGET_H
